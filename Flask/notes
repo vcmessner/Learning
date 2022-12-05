@@ -1,0 +1,46 @@
+{
+    "username": "admin",
+    "email": "admin@admin.com",
+    "name": "myname",
+    "password": "admin"
+}
+
+{
+    "username": "notadmin",
+    "email": "notadmin@admin.com",
+    "name": "myname",
+    "password": "notadmin"
+}
+
+{
+    "usernames": [
+        {
+            "admin": true,
+            "email": "admin@admin.com",
+            "name": "myname",
+            "public_id": "138cabd0-efbb-43a3-bbdf-8bb58a7abec2",
+            "username": "admin"
+        },
+        {
+            "admin": false,
+            "email": "notadmin@admin.com",
+            "name": "myname",
+            "public_id": "229ed026-428c-4df4-9006-965fda64bfbb",
+            "username": "notadmin"
+        }
+    ]
+}
+
+{
+    "name": "task1",
+    "description": "My description",
+}
+
+
+
+{
+    "Acess": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY3MDE2OTA5NywianRpIjoiYzRkMTRkOTMtODgxOS00YWZlLWI0MmYtOGM5MzgyOGYwYTc2IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6eyJ1c2VybmFtZSI6ImFkbWluIn0sIm5iZiI6MTY3MDE2OTA5NywiZXhwIjoxNjcwMTcwODk3fQ.-gSvNomzp0CoQcGymF5C4f-IjRCtEGaIepWPa6CINiU",
+    "Refresh": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY3MDE2OTA5NywianRpIjoiMmE4ODJjNzMtMjViZi00YWY2LWEzZGQtZmI1ZjI3YjUyNDVhIiwidHlwZSI6InJlZnJlc2giLCJzdWIiOjEsIm5iZiI6MTY3MDE2OTA5NywiZXhwIjoxNjcyNzYxMDk3fQ.cMgpksXnZIeNhCol5dCJWR9GLa-oE-D2t05a-o5HJro"
+}
+
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY3MDE2OTE1NiwianRpIjoiZDBhZmRjOWMtZDU2NC00NTNlLWFlNWUtZWYwMTZjZjU0ODMzIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MSwibmJmIjoxNjcwMTY5MTU2LCJleHAiOjE2NzAxNzAwNTZ9.R89WmoL8YI1ewmkkCrBsM8mUZUuH-tRJXPCeZugWE6o
