@@ -1,0 +1,82 @@
+1b
+Media de inicialização
+2.85091e-06
+Variância de inicialização
+4.53728e-12
+Media de Encriptação
+5.42228e-06
+Variância de Encriptação
+2.73291e-11
+
+2b
+Media de inicialização
+2.34077e-06
+Variância de inicialização
+7.46507e-12
+Media de Encriptação
+4.47306e-06
+Variância de Encriptação
+4.33482e-11
+
+4b
+Media de inicialização
+2.43868e-06
+Variância de inicialização
+1.931e-11
+Media de Encriptação
+4.67372e-06
+Variância de Encriptação
+1.10508e-10
+
+8b
+Media de inicialização
+2.30201e-06
+Variância de inicialização
+2.8527e-12
+Media de Encriptação
+4.51209e-06
+Variância de Encriptação
+1.87915e-11
+
+16b
+Media de inicialização
+2.40599e-06
+Variância de inicialização
+6.41617e-13
+Media de Encriptação
+4.64969e-06
+Variância de Encriptação
+6.93956e-12
+
+32b
+Media de inicialização
+2.76455e-06
+Variância de inicialização
+2.5649e-13
+Media de Encriptação
+5.46025e-06
+Variância de Encriptação
+2.28842e-12
+
+64b
+Media de inicialização
+2.52072e-06
+Variância de inicialização
+1.9024e-12
+Media de Encriptação
+4.88659e-06
+Variância de Encriptação
+1.75596e-11
+
+128b
+Media de inicialização
+2.05878e-06
+Variância de inicialização
+3.2408e-12
+Media de Encriptação
+3.93067e-06
+Variância de Encriptação
+2.21495e-11
+
+256b
+

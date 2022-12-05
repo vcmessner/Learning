@@ -1,0 +1,30 @@
+# started on Tue Jul 11 12:55:15 2017
+
+
+ Performance counter stats for './1b' (1000 runs):
+
+         3.583.474      cycles:uk                                                     ( +-  0,10% )
+         3.115.353      instructions:uk           #    0,87  insn per cycle                                              ( +-  0,01% )
+
+       0,002528049 seconds time elapsed                                          ( +-  0,50% )
+
+# started on Tue Jul 11 12:55:19 2017
+
+
+ Performance counter stats for './16b' (1000 runs):
+
+         3.584.361      cycles:uk                                                     ( +-  0,10% )
+         3.114.548      instructions:uk           #    0,87  insn per cycle                                              ( +-  0,01% )
+
+       0,002511235 seconds time elapsed                                          ( +-  0,44% )
+
+# started on Tue Jul 11 12:55:21 2017
+
+
+ Performance counter stats for './32b' (1000 runs):
+
+         3.575.402      cycles:uk                                                     ( +-  0,10% )
+         3.115.039      instructions:uk           #    0,87  insn per cycle                                              ( +-  0,01% )
+
+       0,002533120 seconds time elapsed                                          ( +-  0,50% )
+

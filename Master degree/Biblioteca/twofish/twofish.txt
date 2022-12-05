@@ -1,0 +1,98 @@
+# started on Fri Jun 30 10:58:43 2017
+
+
+ Performance counter stats for './1b' (1000 runs):
+
+         8.555.091      cycles:uk                                                     ( +-  1,29% )  (0,00%)
+        12.657.287      instructions:uk           #    1,48  insn per cycle                                              ( +-  0,67% )
+         4.770.510      L1-dcache-loads                                               ( +-  0,09% )
+           135.806      L1-dcache-load-misses     #    2,85% of all L1-dcache hits    ( +-  0,08% )
+           202.375      LLC-loads                                                     ( +-  0,06% )
+            29.215      LLC-load-misses           #   14,44% of all LL-cache hits     ( +-  0,68% )  (0,00%)
+
+       0,007229767 seconds time elapsed                                          ( +-  0,80% )
+
+# started on Fri Jun 30 10:58:51 2017
+
+
+ Performance counter stats for './2b' (1000 runs):
+
+         8.857.452      cycles:uk                                                     ( +-  1,27% )  (0,00%)
+        12.849.636      instructions:uk           #    1,45  insn per cycle                                              ( +-  0,65% )
+         4.769.043      L1-dcache-loads                                               ( +-  0,09% )
+           135.921      L1-dcache-load-misses     #    2,85% of all L1-dcache hits    ( +-  0,13% )
+           202.247      LLC-loads                                                     ( +-  0,09% )
+            28.603      LLC-load-misses           #   14,14% of all LL-cache hits     ( +-  0,83% )  (0,00%)
+
+       0,007102994 seconds time elapsed                                          ( +-  0,85% )
+
+# started on Fri Jun 30 10:58:58 2017
+
+
+ Performance counter stats for './4b' (1000 runs):
+
+         8.946.967      cycles:uk                                                     ( +-  1,29% )  (0,00%)
+        12.439.832      instructions:uk           #    1,39  insn per cycle                                              ( +-  0,74% )
+         4.747.180      L1-dcache-loads                                               ( +-  0,12% )
+           135.801      L1-dcache-load-misses     #    2,86% of all L1-dcache hits    ( +-  0,11% )
+           202.272      LLC-loads                                                     ( +-  0,08% )
+            29.023      LLC-load-misses           #   14,35% of all LL-cache hits     ( +-  0,68% )  (0,00%)
+
+       0,007296585 seconds time elapsed                                          ( +-  0,84% )
+
+# started on Fri Jun 30 10:59:06 2017
+
+
+ Performance counter stats for './8b' (1000 runs):
+
+         8.651.604      cycles:uk                                                     ( +-  1,39% )  (0,00%)
+        12.649.912      instructions:uk           #    1,46  insn per cycle                                              ( +-  0,68% )
+         4.765.362      L1-dcache-loads                                               ( +-  0,10% )
+           135.678      L1-dcache-load-misses     #    2,85% of all L1-dcache hits    ( +-  0,07% )
+           202.110      LLC-loads                                                     ( +-  0,05% )
+            29.377      LLC-load-misses           #   14,54% of all LL-cache hits     ( +-  0,74% )  (0,00%)
+
+       0,007089558 seconds time elapsed                                          ( +-  0,84% )
+
+# started on Fri Jun 30 10:59:14 2017
+
+
+ Performance counter stats for './16b' (1000 runs):
+
+         8.681.113      cycles:uk                                                     ( +-  1,41% )  (0,00%)
+        12.660.896      instructions:uk           #    1,46  insn per cycle                                              ( +-  0,70% )
+         4.758.675      L1-dcache-loads                                               ( +-  0,11% )
+           136.032      L1-dcache-load-misses     #    2,86% of all L1-dcache hits    ( +-  0,15% )
+           202.418      LLC-loads                                                     ( +-  0,11% )
+            28.599      LLC-load-misses           #   14,13% of all LL-cache hits     ( +-  0,75% )  (0,00%)
+
+       0,007121003 seconds time elapsed                                          ( +-  0,85% )
+
+# started on Fri Jun 30 10:59:22 2017
+
+
+ Performance counter stats for './32b' (1000 runs):
+
+         8.784.760      cycles:uk                                                     ( +-  1,35% )  (0,00%)
+        12.524.330      instructions:uk           #    1,43  insn per cycle                                              ( +-  0,72% )
+         4.762.418      L1-dcache-loads                                               ( +-  0,11% )
+           136.042      L1-dcache-load-misses     #    2,86% of all L1-dcache hits    ( +-  0,12% )
+           202.368      LLC-loads                                                     ( +-  0,08% )
+            28.995      LLC-load-misses           #   14,33% of all LL-cache hits     ( +-  0,80% )  (0,00%)
+
+       0,007179339 seconds time elapsed                                          ( +-  0,87% )
+
+# started on Fri Jun 30 10:59:29 2017
+
+
+ Performance counter stats for './128b' (1000 runs):
+
+         9.139.449      cycles:uk                                                     ( +-  1,29% )  (0,00%)
+        12.759.960      instructions:uk           #    1,40  insn per cycle                                              ( +-  0,67% )
+         4.744.177      L1-dcache-loads                                               ( +-  0,11% )
+           135.123      L1-dcache-load-misses     #    2,85% of all L1-dcache hits    ( +-  0,06% )
+           201.197      LLC-loads                                                     ( +-  0,05% )
+            28.493      LLC-load-misses           #   14,16% of all LL-cache hits     ( +-  0,74% )  (0,00%)
+
+       0,007106884 seconds time elapsed                                          ( +-  0,82% )
+
