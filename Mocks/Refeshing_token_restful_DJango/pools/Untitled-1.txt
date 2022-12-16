@@ -1,0 +1,24 @@
+{
+"email" : "admin@admin.com",
+"username" : "admin",
+"password" : "admin",
+"name" : "admin",
+"admin" : "true"
+}
+
+{
+    "id": 1,
+    "public_id": "5d6224f9-cdc4-4280-a396-fca28a8d9183",
+    "email": "admin@admin.com",
+    "username": "admin",
+    "name": "admin",
+    "admin": true,
+    "token": null,
+    "last_token_created_at": null
+}
+
+
+
+
+
+flame wall - burning damage support - efficacy support - elemental focus suppor
