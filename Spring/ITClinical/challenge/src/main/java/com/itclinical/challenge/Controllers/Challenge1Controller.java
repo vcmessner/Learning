@@ -9,9 +9,16 @@ public class Challenge1Controller implements ChallengeFactory {
 
     //challenge 1
 
-    public String solve (String[] in){
+    Input input = null;
+
+    public Challenge1Controller(String[] in){
+    }
+    
+
+    public String solve (){
         String resp=""; 
     return resp;
     }
+
 }
     

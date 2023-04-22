@@ -10,6 +10,7 @@ import java.util.Random;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import com.itclinical.challenge.Controllers.Challenge1Controller;
 import com.itclinical.challenge.Controllers.Input;
 
 @SpringBootTest
@@ -163,9 +164,10 @@ class ChallengeApplicationTests {
 	}
 
 	void test_result(){
-		String [] in ={"ITClinical","1"};
-		//Challenge1Controller mycontroller = new Challenge1Controller(in);
-
+		String [] in ={"ITCLiNicAl","1"};
+		Challenge1Controller mycontroller = new Challenge1Controller(in);
+		String output = mycontroller.solve();
+		assertEquals(output,"ITCLNA");
 		/* verifica se o resultado de acordo com os 
 		 exemplos fornecidos pelo problema */
 	}
