@@ -163,6 +163,7 @@ class ChallengeApplicationTests {
 
 	}
 
+	@Test
 	void test_result(){
 		String [] in ={"ITCLiNicAl","1"};
 		Challenge1Controller mycontroller = new Challenge1Controller(in);
