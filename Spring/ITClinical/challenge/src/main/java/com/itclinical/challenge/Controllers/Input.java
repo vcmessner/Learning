@@ -14,6 +14,39 @@ public class Input extends InputFactory {
             this.setN(Integer.parseInt(in[1]));
         }        
     }
+
+    public Input(int tamanho, int probabilidade, int modo){
+        // TODO documentar
+        switch (modo) {
+            case 1:
+                this.setTexto(Generate_Alpha_String(tamanho, probabilidade));
+                this.setN(Generate_Number(tamanho));                    
+            break;            
+            case 2:            
+                this.setTexto(Generate_Num_String(tamanho));
+                this.setN(Generate_Number(tamanho));          
+            break;            
+            case 3:            
+                this.setTexto(Generate_AlphaNum_String(tamanho, probabilidade));  
+                this.setN(Generate_Number(tamanho));              
+            break;
+            case -1:
+                this.setTexto(Generate_Alpha_String(tamanho, probabilidade));   
+                this.setN(Generate_Number(tamanho)+tamanho);               
+            break;            
+            case -2:            
+                this.setTexto(Generate_Num_String(tamanho)); 
+                this.setN(Generate_Number(tamanho)+tamanho);         
+            break;            
+            case -3:            
+                this.setTexto(Generate_AlphaNum_String(tamanho, probabilidade));
+                this.setN(Generate_Number(tamanho)+tamanho);                
+            break;
+            default:            
+                this.setTexto("");
+                n=1;           
+            }       
+        }
         
     public void setTexto(String texto) {
         this.texto = texto;

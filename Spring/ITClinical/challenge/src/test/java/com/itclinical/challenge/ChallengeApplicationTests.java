@@ -47,7 +47,33 @@ class ChallengeApplicationTests {
 
 
 	@Test
-	void test_Texto_isalpha(){
+	void test_random_input(){
+		Input alpha_correct_Input=new Input(10,50,1);
+		Input num_correct_Input=new Input(10,50,2);
+		Input alphanum_correct_Input=new Input(10,50,3);
+		Input alpha_incorrect_Input=new Input(10,50,-1);
+		Input num_incorrect_Input=new Input(10,50,-2);
+		Input alphanum_incorrect_Input=new Input(10,50,-3);
+		assertTrue(alpha_correct_Input.getTexto().matches("[a-zA-Z]+"));
+		assertTrue(alpha_incorrect_Input.getTexto().matches("[a-zA-Z]+"));
+		assertFalse(num_correct_Input.getTexto().matches("[a-zA-Z]+"));
+		assertFalse(num_incorrect_Input.getTexto().matches("[a-zA-Z]+"));
+		assertFalse(alphanum_correct_Input.getTexto().matches("[a-zA-Z]+"));
+		assertFalse(alphanum_incorrect_Input.getTexto().matches("[a-zA-Z]+"));
+		assertTrue(Integer.class.isInstance(alphanum_correct_Input.getN()));
+		assertTrue(Integer.class.isInstance(alphanum_incorrect_Input.getN()));
+		assertTrue(Integer.class.isInstance(alpha_correct_Input.getN()));
+		assertTrue(Integer.class.isInstance(alpha_incorrect_Input.getN()));
+		assertTrue(Integer.class.isInstance(num_incorrect_Input.getN()));
+		assertTrue(Integer.class.isInstance(num_correct_Input.getN()));
+	}
+
+	
+
+
+
+	@Test
+	void test_String_isalpha(){
 		String [] in ={"ITClinical","1"};		
 		String [] in2 ={"1","a"};
 		String [] in3 ={"",""};
@@ -62,7 +88,7 @@ class ChallengeApplicationTests {
 	}
 
 	@Test
-	void test_N_isnumber(){
+	void test_String_isnumber(){
 		String [] in ={"ITClinical","1111238545467134"};
 		String [] in2 ={"1","a"};
 		String [] in3 ={"",""};
@@ -160,6 +186,13 @@ class ChallengeApplicationTests {
 	void test_Text_input_format(){
 		/* verifica se o input fornecido usa "" ou não */
 	}
+
+	void test_generate_test_vector(){
+		// verifica a formação de inputs dos testvectors aleatorios
+	}
+
+
+
 
 
 
