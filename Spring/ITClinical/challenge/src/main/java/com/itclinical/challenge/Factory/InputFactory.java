@@ -35,4 +35,22 @@ public class InputFactory {
                 return null;
           }
     } 
+
+    public String getTexto(String tipo){
+        switch(tipo) {
+            case "1":
+                return  ((Input1) myInput).getTexto(); 
+            default:
+                return null;
+          }
+    }
+	
+	public int getN(String tipo){
+        switch(tipo) {
+            case "1":
+                return  ((Input1) myInput).getN(); 
+            default:
+                return -1;
+          }
+    }
 }

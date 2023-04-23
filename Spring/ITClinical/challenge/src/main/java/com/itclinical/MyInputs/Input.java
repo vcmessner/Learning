@@ -10,7 +10,6 @@ public abstract class Input {
 	protected String str_values="";
     protected StringChecker stringCheck = new StringChecker();
 
-
     protected int Generate_Number(int maxint){
 		Random ran = new Random();	
         return ran.nextInt(maxint);//[0,maxint[
@@ -34,9 +33,9 @@ public abstract class Input {
 
 	public abstract String getStrValues();
 
-	public abstract String getTexto();
-	
-	public abstract int getN();
+
+    /* TODO dar um jeito de remover getTexto e getN. Não faz sentido eles estarem aqui.*/
+
         
        
    

@@ -29,11 +29,11 @@ public class ChallengeFactory {
             case "1":
                 return  new Challenge1(in); 
             case "2":
-                return  new Challenge2(in); 
+                return  null;
             case "3":
-                return  new Challenge3(in); 
+                return  null; 
             case "4":
-                return  new Challenge4(in); 
+                return  null; 
             default:
                 return null;
           }

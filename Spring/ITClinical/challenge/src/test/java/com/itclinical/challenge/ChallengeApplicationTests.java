@@ -50,8 +50,6 @@ class ChallengeApplicationTests {
 		assertNotEquals(empty_input,2);
 	}
 
-
-
 	@RepeatedTest (1000)
 	void test_random_input(){
 		InputFactory alpha_correct_Input=new InputFactory(10,50,1,"1");
@@ -61,16 +59,16 @@ class ChallengeApplicationTests {
 		InputFactory num_incorrect_Input=new InputFactory(10,50,-2,"1");
 		InputFactory alphanum_incorrect_Input=new InputFactory(10,50,-3,"1");
 		StringChecker Checker = new StringChecker();
-		assertTrue(Checker.Validate_isAlpha(alpha_correct_Input.myInput.getTexto()));
-		assertTrue(Checker.Validate_isAlpha(alpha_incorrect_Input.myInput.getTexto()));
-		assertFalse(Checker.Validate_isAlpha(num_correct_Input.myInput.getTexto()));
-		assertFalse(Checker.Validate_isAlpha(num_incorrect_Input.myInput.getTexto()));
-		assertTrue(Integer.class.isInstance(alphanum_correct_Input.myInput.getN()));
-		assertTrue(Integer.class.isInstance(alphanum_incorrect_Input.myInput.getN()));
-		assertTrue(Integer.class.isInstance(alpha_correct_Input.myInput.getN()));
-		assertTrue(Integer.class.isInstance(alpha_incorrect_Input.myInput.getN()));
-		assertTrue(Integer.class.isInstance(num_incorrect_Input.myInput.getN()));
-		assertTrue(Integer.class.isInstance(num_correct_Input.myInput.getN()));
+		assertTrue(Checker.Validate_isAlpha(alpha_correct_Input.getTexto("1")));
+		assertTrue(Checker.Validate_isAlpha(alpha_incorrect_Input.getTexto("1")));
+		assertFalse(Checker.Validate_isAlpha(num_correct_Input.getTexto("1")));
+		assertFalse(Checker.Validate_isAlpha(num_incorrect_Input.getTexto("1")));
+		assertTrue(Integer.class.isInstance(alphanum_correct_Input.getN("1")));
+		assertTrue(Integer.class.isInstance(alphanum_incorrect_Input.getN("1")));
+		assertTrue(Integer.class.isInstance(alpha_correct_Input.getN("1")));
+		assertTrue(Integer.class.isInstance(alpha_incorrect_Input.getN("1")));
+		assertTrue(Integer.class.isInstance(num_incorrect_Input.getN("1")));
+		assertTrue(Integer.class.isInstance(num_correct_Input.getN("1")));
 	}
 
 	@Test 
@@ -118,7 +116,7 @@ class ChallengeApplicationTests {
 
 	@ParameterizedTest
 	@ValueSource(strings  = {"1", "2", "3", "100", "-1" , "0", "a"}) // six numbers
-	void test_my_result(String n){
+	void test_my_Challenge1(String n){
 		String text = "ITCLiNicAl";
 		String[] in = {text,n};
 		ChallengeFactory challenge = new ChallengeFactory(in,"1");		
@@ -154,6 +152,43 @@ class ChallengeApplicationTests {
 				break;
 		}	
 	}
+
+	@Test
+	void test_lowercase_regex(){
+		int i =0;
+		char c = (char) i;		
+		for(i=0;i<128;++i){			
+			c = (char) i;
+			if(i>96 && i<123){
+				assertTrue(Character.toString(c).matches("[a-z]+"));
+			}
+			else{
+				assertFalse(Character.toString(c).matches("[a-z]+"));
+			}
+		}
+	}
+
+	@ParameterizedTest
+	@ValueSource(strings  = {"1"})
+	void test_my_Challenge2(String n){
+
+		// deve retornar qualquer caracter não minusculo
+		String text = "!tCL1Nical";
+		String[] in = {text,n};
+		ChallengeFactory challenge = new ChallengeFactory(in,"2");		
+		String resp = challenge.SolveChallenge(in);
+		switch(n){
+			case"1":
+				assertEquals(resp, "!CL1N");
+				break; 
+			default:
+				break;
+		}	
+	}
+
+
+
+
 
 	void test_N_geq1(){
 		/*melhor colocar simplemente como retorno da aplicação

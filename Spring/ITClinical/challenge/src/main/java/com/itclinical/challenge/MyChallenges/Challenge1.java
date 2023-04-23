@@ -1,21 +1,21 @@
 package com.itclinical.challenge.MyChallenges;
-
-import com.itclinical.MyInputs.Input1;
+import com.itclinical.challenge.Factory.InputFactory;
 
 public class Challenge1 implements Challenge {
-    private Input1 input;
-    public Input1 getInput() {
+    private InputFactory input;
+    private String output;
+    private String MyID="1";
+    
+    public InputFactory getInput() {
         return input;
     }
 
-    public void setInput(Input1 input) {
+    public void setInput(InputFactory input) {
         this.input = input;
     }
 
-    private String output;
-
     public Challenge1(String[] in){
-        this.input=new Input1(in);
+        this.input=new InputFactory(in,"1");
     }
 
     public String getOutput() {
@@ -29,10 +29,10 @@ public class Challenge1 implements Challenge {
 
     public void solve(){
 		String resp="";
-		//Input myInput = new Input(in);
-        String texto = input.getTexto();
-        int tamanho = input.getTexto().length();
-        int n = input.getN();
+		//InputFactory myInput = new Input(in);
+        String texto = input.getTexto(MyID);
+        int tamanho = texto.length();
+        int n = input.getN(MyID);
         if(n<1){
             output= resp; 
         }       
@@ -52,5 +52,5 @@ public class Challenge1 implements Challenge {
                 output=resp;
 	        }
         }
-    }    
+    }
 }
