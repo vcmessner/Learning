@@ -10,6 +10,12 @@ public class Input2 extends Input{
     
 
     public Input2(String[] in) {
+        set_strValues(in);
+        this.setTexto(in[0]);            
+        int a =Str_to_Pos_Int(in[1]);
+        if(a>0){
+            this.setN(a);
+        }
                 
     }
 

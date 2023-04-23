@@ -15,7 +15,7 @@ public class Challenge1 implements Challenge {
     }
 
     public Challenge1(String[] in){
-        this.input=new InputFactory(in,"1");
+        this.input=new InputFactory(in,MyID);
     }
 
     public String getOutput() {

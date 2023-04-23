@@ -187,6 +187,24 @@ class ChallengeApplicationTests {
 	}
 
 
+	@ParameterizedTest
+	@ValueSource(strings  = {"1"})
+	void test_my_Challenge3(String n){
+
+		// deve retornar qualquer caracter não minusculo
+		String text = "ItCLINiCAL";
+		String[] in = {text,n};
+		ChallengeFactory challenge = new ChallengeFactory(in,"3");		
+		String resp = challenge.SolveChallenge(in);
+		switch(n){
+			case"1":
+				assertEquals(resp, "ICLINCAL");
+				break; 
+			default:
+				break;
+		}	
+	}
+
 
 
 

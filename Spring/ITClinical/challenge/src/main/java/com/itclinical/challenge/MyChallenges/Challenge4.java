@@ -5,6 +5,9 @@ import com.itclinical.challenge.Factory.InputFactory;
 
 public class Challenge4 implements Challenge{
 
+    public Challenge4(String[] in) {
+    }
+
     @Override
     public void setInput(InputFactory input) {
         // TODO Auto-generated method stub

@@ -1,38 +1,58 @@
 package com.itclinical.challenge.MyChallenges;
 
-import com.itclinical.MyInputs.Input1;
-import com.itclinical.MyInputs.Input2;
 import com.itclinical.challenge.Factory.InputFactory;
 
 public class Challenge2 implements Challenge {
+    private InputFactory input;
+    private String output;
+    private String MyID="2";
 
-    @Override
-    public void setInput(InputFactory input) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'setInput'");
+    public Challenge2(String[] in) {
+        this.input=new InputFactory(in,MyID);
     }
 
-    @Override
     public InputFactory getInput() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getInput'");
+        return input;
     }
 
-    @Override
+    public void setInput(InputFactory input) {
+        this.input = input;
+    }
+
     public String getOutput() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getOutput'");
+        return output;
     }
 
-    @Override
     public void setOutput(String output) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'setOutput'");
+        this.output = output;
     }
 
-    @Override
-    public void solve() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'solve'");
-    } 
+    public void solve(){
+		String resp="";
+		//InputFactory myInput = new Input(in);
+        String texto = input.getTexto(MyID);
+        int tamanho = texto.length();
+        int n = input.getN(MyID);
+        if(n<1){
+            output= resp; 
+        }       
+        else{
+            if(tamanho<n){
+                output= resp;
+            }
+            else{
+                int pos = n-1; // começando na posição 0
+                char a;
+                while(pos<tamanho){
+                    a = texto.charAt(pos);
+                    if((a<97) || (a>122)){ // melhor do que um and com um não para delimitar o intervalo. 
+                        resp+=a;
+                    }
+                    pos+=n;
+                }
+                output=resp;
+	        }
+        }
+    }
+
 }
