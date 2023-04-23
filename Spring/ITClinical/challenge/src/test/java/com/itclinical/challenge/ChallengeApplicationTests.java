@@ -7,11 +7,16 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.Random;
 
+import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import com.itclinical.challenge.Controllers.Challenge1Controller;
-import com.itclinical.challenge.Controllers.Input;
+import com.itclinical.AuxiliaryString.StringChecker;
+import com.itclinical.MyInputs.Input1;
+import com.itclinical.challenge.Factory.ChallengeFactory;
+import com.itclinical.challenge.Factory.InputFactory;
 
 @SpringBootTest
 class ChallengeApplicationTests {
@@ -47,40 +52,35 @@ class ChallengeApplicationTests {
 
 
 
-	@Test
+	@RepeatedTest (1000)
 	void test_random_input(){
-		Input alpha_correct_Input=new Input(10,50,1);
-		Input num_correct_Input=new Input(10,50,2);
-		Input alphanum_correct_Input=new Input(10,50,3);
-		Input alpha_incorrect_Input=new Input(10,50,-1);
-		Input num_incorrect_Input=new Input(10,50,-2);
-		Input alphanum_incorrect_Input=new Input(10,50,-3);
-		assertTrue(alpha_correct_Input.getTexto().matches("[a-zA-Z]+"));
-		assertTrue(alpha_incorrect_Input.getTexto().matches("[a-zA-Z]+"));
-		assertFalse(num_correct_Input.getTexto().matches("[a-zA-Z]+"));
-		assertFalse(num_incorrect_Input.getTexto().matches("[a-zA-Z]+"));
-		assertFalse(alphanum_correct_Input.getTexto().matches("[a-zA-Z]+"));
-		assertFalse(alphanum_incorrect_Input.getTexto().matches("[a-zA-Z]+"));
-		assertTrue(Integer.class.isInstance(alphanum_correct_Input.getN()));
-		assertTrue(Integer.class.isInstance(alphanum_incorrect_Input.getN()));
-		assertTrue(Integer.class.isInstance(alpha_correct_Input.getN()));
-		assertTrue(Integer.class.isInstance(alpha_incorrect_Input.getN()));
-		assertTrue(Integer.class.isInstance(num_incorrect_Input.getN()));
-		assertTrue(Integer.class.isInstance(num_correct_Input.getN()));
+		InputFactory alpha_correct_Input=new InputFactory(10,50,1,"1");
+		InputFactory num_correct_Input=new InputFactory(10,50,2,"1");
+		InputFactory alphanum_correct_Input=new InputFactory(10,50,3,"1");
+		InputFactory alpha_incorrect_Input=new InputFactory(10,50,-1,"1");
+		InputFactory num_incorrect_Input=new InputFactory(10,50,-2,"1");
+		InputFactory alphanum_incorrect_Input=new InputFactory(10,50,-3,"1");
+		StringChecker Checker = new StringChecker();
+		assertTrue(Checker.Validate_isAlpha(alpha_correct_Input.myInput.getTexto()));
+		assertTrue(Checker.Validate_isAlpha(alpha_incorrect_Input.myInput.getTexto()));
+		assertFalse(Checker.Validate_isAlpha(num_correct_Input.myInput.getTexto()));
+		assertFalse(Checker.Validate_isAlpha(num_incorrect_Input.myInput.getTexto()));
+		assertTrue(Integer.class.isInstance(alphanum_correct_Input.myInput.getN()));
+		assertTrue(Integer.class.isInstance(alphanum_incorrect_Input.myInput.getN()));
+		assertTrue(Integer.class.isInstance(alpha_correct_Input.myInput.getN()));
+		assertTrue(Integer.class.isInstance(alpha_incorrect_Input.myInput.getN()));
+		assertTrue(Integer.class.isInstance(num_incorrect_Input.myInput.getN()));
+		assertTrue(Integer.class.isInstance(num_correct_Input.myInput.getN()));
 	}
 
-	
-
-
-
-	@Test
+	@Test 
 	void test_String_isalpha(){
 		String [] in ={"ITClinical","1"};		
 		String [] in2 ={"1","a"};
 		String [] in3 ={"",""};
 		String [] in4 ={"ITClinical2023","a1"};
 		String [] in5 ={"IT Clinical","1a"};
-		Input Ok_Input = new Input(in);
+		Input1 Ok_Input = new Input1(in);
 		assertTrue(Ok_Input.getTexto().matches("[a-zA-Z]+"));
 		assertFalse(in2[0].matches("[a-zA-Z]+"));
 		assertFalse(in3[0].matches("[a-zA-Z]+"));
@@ -89,12 +89,12 @@ class ChallengeApplicationTests {
 	}
 
 	@Test
-	void test_String_isnumber(){
+	void test_String_is_positive_number(){
 		String [] in ={"ITClinical","1111238545467134"};
 		String [] in2 ={"1","a"};
 		String [] in3 ={"",""};
 		String [] in4 ={"ITClinical2023","a1"};
-		String [] in5 ={"IT Clinical","1a"};
+		String [] in5 ={"-1","1a"};
 		assertTrue(in[1].matches("[0-9]+"));
 		assertFalse(in2[1].matches("[0-9]+"));
 		assertFalse(in3[1].matches("[0-9]+"));
@@ -103,58 +103,57 @@ class ChallengeApplicationTests {
 	}
 
 	@Test
-	void generate_random_alpha_string(){
-		int probabilidade = 50; // probabilidade de ser maiuscula
-		int tamanho =10;
-		String resp ="";
-		Random ran = new Random();		
-		for(int i=0;i<tamanho;++i){
-        	char mychar = (char) ran.nextInt(26); //26 letras [0,26[
-			mychar +=65; // estou na tabela ascii com letra maiuscula
-			if(ran.nextInt(101)>probabilidade){
-				mychar = Character.toLowerCase(mychar);
-			}
-			resp+=Character.toString(mychar);
-			//resp+= String.valueOf(mychar);
-		}
-		assertTrue(resp.matches("[a-zA-Z]+"));
-		}
+	void test_String_is_number(){
+		String [] in ={"ITClinical","1111238545467134"};
+		String [] in2 ={"1","a"};
+		String [] in3 ={"",""};
+		String [] in4 ={"ITClinical2023","a1"};
+		String [] in5 ={"-1","1a"};
+		assertTrue(in[1].matches("^-?[0-9]+"));
+		assertFalse(in2[1].matches("^-?[0-9]+"));
+		assertFalse(in3[1].matches("^-?[0-9]+"));
+		assertFalse(in4[1].matches("^-?[0-9]+"));
+		assertFalse(in5[1].matches("^-?[0-9]+"));
+	}	
 
-	@Test
-	void generate_random_num_string(){
-		int tamanho =10;
-		String resp ="";
-		Random ran = new Random();		
-		for(int i=0;i<tamanho;++i){
-        	resp+=Integer.toString(ran.nextInt(10)); //[0,9[
-		}
-		assertTrue(resp.matches("[0-9]+"));
+	@ParameterizedTest
+	@ValueSource(strings  = {"1", "2", "3", "100", "-1" , "0", "a"}) // six numbers
+	void test_my_result(String n){
+		String text = "ITCLiNicAl";
+		String[] in = {text,n};
+		ChallengeFactory challenge = new ChallengeFactory(in,"1");		
+		String resp = challenge.SolveChallenge(in);
+		switch(n){
+			case"1":
+				assertEquals(resp, "ITCLNA");
+				break; 
+
+			case"2":
+				assertEquals(resp, "TLN");
+			break;
+
+			case"3":
+				assertEquals(resp, "CNA");
+			break;
+
+			case"100":
+				assertEquals(resp,"");
+			break;
+
+			case"-1":
+				assertEquals(resp,"");
+			break;
+
+			case"0":
+				assertEquals(resp,"");
+			
+			case"a":
+				assertEquals(resp,"");
+			break;
+			default:
+				break;
+		}	
 	}
-
-	@Test
-	void generate_random_alphanum_string(){
-		int probabilidade = 50; // probabilidade de ser maiuscula
-		int tamanho =10;
-		String resp ="";
-		Random ran = new Random();		
-		for(int i=0;i<tamanho;++i){
-        	char mychar = (char) ran.nextInt(36); //26 letras [0,26[ +10 [0,9[]
-			if(mychar>25){ // numero
-				resp+=Integer.toString(35-mychar);
-			}
-			else{ //letra
-				mychar +=65; // estou na tabela ascii com letra maiuscula
-				if(ran.nextInt(101)>probabilidade){
-					mychar = Character.toLowerCase(mychar);
-				}
-				resp+=Character.toString(mychar);
-			}
-		}
-		assertTrue(resp.matches("[A-Za-z0-9]+"));
-	}
-
-
-
 
 	void test_N_geq1(){
 		/*melhor colocar simplemente como retorno da aplicação
@@ -163,15 +162,7 @@ class ChallengeApplicationTests {
 
 	}
 
-	@Test
-	void test_result(){
-		String [] in ={"ITCLiNicAl","1"};
-		Challenge1Controller mycontroller = new Challenge1Controller(in);
-		String output = mycontroller.solve();
-		assertEquals(output,"ITCLNA");
-		/* verifica se o resultado de acordo com os 
-		 exemplos fornecidos pelo problema */
-	}
+
 	
 	void test_Text_output_format(){
 		/*verifica se o output fornecido usa "" ou não */

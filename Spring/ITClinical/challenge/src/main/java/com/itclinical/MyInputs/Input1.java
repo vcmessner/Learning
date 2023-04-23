@@ -1,45 +1,50 @@
-package com.itclinical.challenge.Controllers;
+package com.itclinical.MyInputs;
 
-import com.itclinical.challenge.Factory.InputFactory;
+import com.itclinical.AuxiliaryString.StringGenerator;
 
-public class Input extends InputFactory {
+public class Input1 extends Input {
     private String texto="";
     private int n=-1;
+    
 
-    public Input(String[] in) {
-        if(Validate_isAlpha(in[0])){
+    public Input1(String[] in) {
+        set_strValues(in);
+        if(stringCheck.Validate_isAlpha(in[0])){
             this.setTexto(in[0]);            
         }
-        if(Validate_isNum(in[1])){
-            this.setN(Integer.parseInt(in[1]));
-        }        
+        int a =Str_to_Pos_Int(in[1]);
+        if(a>0){
+            this.setN(a);
+        }
+                
     }
 
-    public Input(int tamanho, int probabilidade, int modo){
+    public Input1(int tamanho, int probabilidade, int modo){
+        StringGenerator Generator = new StringGenerator();
         // TODO documentar
         switch (modo) {
             case 1:
-                this.setTexto(Generate_Alpha_String(tamanho, probabilidade));
+                this.setTexto(Generator.Generate_Alpha_String(tamanho, probabilidade));
                 this.setN(Generate_Number(tamanho));                    
             break;            
             case 2:            
-                this.setTexto(Generate_Num_String(tamanho));
+                this.setTexto(Generator.Generate_Num_String(tamanho));
                 this.setN(Generate_Number(tamanho));          
             break;            
             case 3:            
-                this.setTexto(Generate_AlphaNum_String(tamanho, probabilidade));  
+                this.setTexto(Generator.Generate_AlphaNum_String(tamanho, probabilidade));  
                 this.setN(Generate_Number(tamanho));              
             break;
             case -1:
-                this.setTexto(Generate_Alpha_String(tamanho, probabilidade));   
+                this.setTexto(Generator.Generate_Alpha_String(tamanho, probabilidade));   
                 this.setN(Generate_Number(tamanho)+tamanho);               
             break;            
             case -2:            
-                this.setTexto(Generate_Num_String(tamanho)); 
+                this.setTexto(Generator.Generate_Num_String(tamanho)); 
                 this.setN(Generate_Number(tamanho)+tamanho);         
             break;            
             case -3:            
-                this.setTexto(Generate_AlphaNum_String(tamanho, probabilidade));
+                this.setTexto(Generator.Generate_AlphaNum_String(tamanho, probabilidade));
                 this.setN(Generate_Number(tamanho)+tamanho);                
             break;
             default:            
@@ -62,6 +67,12 @@ public class Input extends InputFactory {
 
     public int getN() {
         return n;
+    }
+
+    @Override
+    public String getStrValues() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getStrValues'");
     }
 
 
