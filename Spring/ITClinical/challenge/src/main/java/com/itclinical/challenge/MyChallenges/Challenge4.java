@@ -1,43 +1,51 @@
 package com.itclinical.challenge.MyChallenges;
-
-import com.itclinical.MyInputs.Input1;
 import com.itclinical.challenge.Factory.InputFactory;
 
 public class Challenge4 implements Challenge{
+    private InputFactory input;
+    private String output;
+    private String MyID="4";
 
     public Challenge4(String[] in) {
     }
 
-    @Override
-    public void setInput(InputFactory input) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'setInput'");
-    }
-
-    @Override
     public InputFactory getInput() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getInput'");
+        return input;
     }
 
-    @Override
+    public void setInput(InputFactory input) {
+        this.input = input;
+    }
+
     public String getOutput() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getOutput'");
+        return output;
     }
 
-    @Override
     public void setOutput(String output) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'setOutput'");
+        this.output = output;
     }
 
-    @Override
-    public void solve() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'solve'");
-    }
+    public void solve(){
+		int cont=0;
+        String[] prefixo= {"","","it"};
+        output = "";
 
-    
-    
+        for(int i = 1;i<101;++i){
+            if((i%3)==0 || (i%5)==0){
+                if((i%3==0) && (i%5!=0)){
+                    output+="it";
+                }
+                else{
+                    output+=(prefixo[cont]+"clinical");
+                    cont+=1;
+                    cont=cont%3;
+                }
+            }
+            else{
+                output+=i;
+            }
+        }
+    //System.out.println(output);
+    }
 }
+

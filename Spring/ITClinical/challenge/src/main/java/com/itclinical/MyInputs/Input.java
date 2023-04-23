@@ -5,7 +5,6 @@ import java.util.Random;
 import com.itclinical.AuxiliaryString.StringChecker;
 
 public abstract class Input {
-    /*TODO  DOCUMENTATION*/
 
 	protected String str_values="";
     protected StringChecker stringCheck = new StringChecker();
@@ -33,8 +32,6 @@ public abstract class Input {
 
 	public abstract String getStrValues();
 
-
-    /* TODO dar um jeito de remover getTexto e getN. Não faz sentido eles estarem aqui.*/
 
         
        

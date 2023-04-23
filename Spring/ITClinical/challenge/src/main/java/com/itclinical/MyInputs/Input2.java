@@ -21,7 +21,6 @@ public class Input2 extends Input{
 
     public Input2(int tamanho, int probabilidade, int modo){
         StringGenerator Generator = new StringGenerator();
-        // TODO documentar
         switch (modo) {
             case 1:
                 this.setTexto(Generator.Generate_Alpha_String(tamanho, probabilidade));
@@ -71,8 +70,7 @@ public class Input2 extends Input{
 
     @Override
     public String getStrValues() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getStrValues'");
+        return"";
     }
 
 

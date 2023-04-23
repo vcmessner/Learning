@@ -18,7 +18,6 @@ public class ChallengeFactory {
             return myChallenge.getOutput();        
         }   
     
-    //public abstract Challenge createChallenge(String[] in);
 
     public ChallengeFactory(String[] in, String Num){
         myChallenge = createChallenge(in,Num);

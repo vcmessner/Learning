@@ -206,6 +206,11 @@ class ChallengeApplicationTests {
 	}
 
 
+	@Test
+	void test_my_Challenge4(){
+		ChallengeFactory challenge = new ChallengeFactory(null,"4");		
+		String resp = challenge.SolveChallenge(null);
+	}
 
 
 	void test_N_geq1(){
