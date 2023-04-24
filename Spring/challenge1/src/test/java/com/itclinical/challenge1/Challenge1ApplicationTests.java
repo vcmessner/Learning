@@ -54,41 +54,66 @@ class Challenge1ApplicationTests {
 
     }
 
+
+	@RepeatedTest(1000)
     void test_Assert_String_as_LowerCaseAlpha(){
-        /*               TODO 
-            Generate a random lowercase alpha String
-            Granted WrongInput for later
-            AssertTrue
+        int probabilidade = 0; // probabilidade de ser maiuscula
+		int tamanho =10;
+		String resp ="";
+		Random ran = new Random();		
+		for(int i=0;i<tamanho;++i){
+			char mychar = (char) ran.nextInt(26); //26 letras [0,26[
+			mychar +=65; // estou na tabela ascii com letra maiuscula
+			if(ran.nextInt(100)+1>probabilidade){ //1 ao 100
+				mychar = Character.toLowerCase(mychar);
+			}
+			resp+=Character.toString(mychar);
+		}
+		assertTrue(resp.matches("[a-z]+"));
+		assertFalse(resp.matches("[A-Z]+"));
+	}
 
-        */
-
-		//String a = randomLowerCaseAlpha();
-        String LowerCaseAlpha = "asdfg";
-        assertTrue(LowerCaseAlpha.matches("[a-z]+"));
-        assertFalse(LowerCaseAlpha.matches("[A-Z]+"));
-        assertFalse(LowerCaseAlpha.matches("[A-Z]+"));
-    }
-
+	@RepeatedTest(1000)
     void test_Assert_String_as_LowerCaseAlphaNum(){
-        /*               TODO 
-            Generate a random lowercase Alphanum String
-            Granted WrongInput for later
-            AssertTrue
-        */
-		String LowerCaseAlphaNum = "123454";
-        assertTrue(LowerCaseAlphaNum.matches("[a-z0-9]+"));
-    }
+        int probabilidade = 0; // probabilidade de ser maiuscula
+		int tamanho =10;
+		String resp ="";
+		Random ran = new Random();		
+		for(int i=0;i<tamanho;++i){
+        	char mychar = (char) ran.nextInt(36); //26 letras [0,26[ +10 [0,9[]
+			if(mychar>25){ // numero
+				resp+=Integer.toString(35-mychar);
+			}
+			else{ //letra
+				mychar +=65; // estou na tabela ascii com letra maiuscula
+				if(ran.nextInt(100)+1>probabilidade){
+					mychar = Character.toLowerCase(mychar);
+				}
+				resp+=Character.toString(mychar);
+			}
+		}
+		assertFalse(resp.matches("[A-Z]+"));
+		assertTrue(resp.matches("[a-z0-9]+"));
+	}
 
-
+	@RepeatedTest(1000)
     void test_Assert_String_as_UpperCaseAlpha(){
-         /*               TODO 
-            Generate a random UpperCase String
-            Granted correct Input for later
-            AssertTrue
-        */
-		String UpperCaseAlpha = "ABCD";
-        assertFalse(UpperCaseAlpha.matches("[A-Z]+"));
-    }
+		int probabilidade = 100; // probabilidade de ser maiuscula
+		int tamanho =10;
+		String resp ="";
+		Random ran = new Random();		
+		for(int i=0;i<tamanho;++i){
+			char mychar = (char) ran.nextInt(26); //26 letras [0,26[
+			mychar +=65; // estou na tabela ascii com letra maiuscula
+			if(ran.nextInt(100)+1>probabilidade){ //1 ao 100
+				mychar = Character.toLowerCase(mychar);
+			}
+			resp+=Character.toString(mychar);
+		}
+		assertFalse(resp.matches("[a-z]+"));
+		assertTrue(resp.matches("[A-Z]+"));
+	}
+
 
     @RepeatedTest(1000)
     void test_Solve_Invalid_Input_Challenge(){
