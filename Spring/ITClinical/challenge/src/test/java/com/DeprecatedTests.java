@@ -26,7 +26,7 @@ public class DeprecatedTests {
 			}
 			else{ //letra
 				mychar +=65; // estou na tabela ascii com letra maiuscula
-				if(ran.nextInt(101)>probabilidade){
+				if(ran.nextInt(100)+1>probabilidade){
 					mychar = Character.toLowerCase(mychar);
 				}
 				resp+=Character.toString(mychar);
@@ -41,7 +41,7 @@ public class DeprecatedTests {
 		int tamanho =10;
 		String resp ="";
 		Random ran = new Random();
-		if(ran.nextInt(101)>probabilidade){
+		if(ran.nextInt(100)+1>probabilidade){
 			resp+="-";
 		}
 		for(int i=0;i<tamanho;++i){
@@ -59,7 +59,7 @@ public class DeprecatedTests {
 		for(int i=0;i<tamanho;++i){
         	char mychar = (char) ran.nextInt(26); //26 letras [0,26[
 			mychar +=65; // estou na tabela ascii com letra maiuscula
-			if(ran.nextInt(101)>probabilidade){
+			if(ran.nextInt(100)+1>probabilidade){
 				mychar = Character.toLowerCase(mychar);
 			}
 			resp+=Character.toString(mychar);
