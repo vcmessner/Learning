@@ -150,6 +150,7 @@ class Challenge1ApplicationTests {
 		Input in = new Input("ITCLiNicAl", "1");
         assertTrue(in.getText().equals("ITCLiNicAl")); 
 		assertTrue(in.getN().equals("1"));
+		assertTrue(Integer.class.isInstance(in.getNumber()));
        
     }
 	
