@@ -9,6 +9,8 @@ import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import com.itclinical.challenge1.Input.Input;
+
 @SpringBootTest
 class Challenge1ApplicationTests {
 
@@ -130,7 +132,10 @@ class Challenge1ApplicationTests {
 		/*               TODO 
             create a Input 
 			asserttrue matching values
-    	 */  
+    	 */ 
+		Input in = new Input("ITCLiNicAl", "1");
+        assertTrue(in.getText().equals("ITCLiNicAl")); 
+		assertTrue(in.getN().equals("1"));
        
     }
 
