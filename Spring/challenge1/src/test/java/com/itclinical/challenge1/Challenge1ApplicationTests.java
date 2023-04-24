@@ -46,12 +46,14 @@ class Challenge1ApplicationTests {
             Get Input Parameter N
         */
 
+		//create a input object
+		//obtem o n do objeto
+		//verifica
+
 		String N="1";
         assertTrue(N.matches("^-?[0-9]+"));
 		assertFalse(N.matches("[A-Z]+"));
 		assertFalse(N.matches("[a-z]+"));
-
-
     }
 
 
@@ -113,6 +115,33 @@ class Challenge1ApplicationTests {
 		assertFalse(resp.matches("[a-z]+"));
 		assertTrue(resp.matches("[A-Z]+"));
 	}
+
+	@Test
+    void test_create_service(){
+		/*               TODO 
+            create service 
+			check if it is active
+    	 */      
+    }
+
+
+    @Test
+    void test_create_input(){ 
+		/*               TODO 
+            create a Input 
+			asserttrue matching values
+    	 */  
+       
+    }
+
+    @Test
+    void test_post_request_contents(){
+		/*               TODO 
+            Create the controller
+			create  raw string body  
+			asserttrue matching values
+    	 */          
+    }  
 
 
     @RepeatedTest(1000)
