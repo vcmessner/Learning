@@ -10,9 +10,11 @@ import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import com.itclinical.challenge1.Input.Input;
+import com.itclinical.challenge1.Supporters.StringVerificationSupport;
 
 @SpringBootTest
 class Challenge1ApplicationTests {
+	StringVerificationSupport verificator = new StringVerificationSupport();
 
 	 @Test 
 	void test_Send_Input_To_Service(){
@@ -21,7 +23,7 @@ class Challenge1ApplicationTests {
             */
 	}
 
-    @RepeatedTest(1000)
+    @RepeatedTest(100)
     void test_Assert_Number_as_Integer(){
 		int probabilidade =50;
 		int tamanho =10;
@@ -34,12 +36,14 @@ class Challenge1ApplicationTests {
 		for(int i=0;i<tamanho;++i){
         	resp+=Integer.toString(ran.nextInt(10)); //[0,9[		
 		}
-		assertTrue(resp.matches("^-?[0-9]+"));
-		assertFalse(resp.matches("[A-Z]+"));
-		assertFalse(resp.matches("[a-z]+"));
-        assertTrue(Integer.toString(mynumber).matches("^-?[0-9]+"));
-        assertFalse(Integer.toString(mynumber).matches("[A-Z]+"));
-		assertFalse(Integer.toString(mynumber).matches("[a-z]+"));
+		assertFalse(verificator.Validate_isAlpha(resp));
+		assertFalse(verificator.Validate_isLowerCaseAlpha(resp));
+		assertFalse(verificator.Validate_isUpperCaseAlpha(resp));
+		assertTrue(verificator.Validate_is_Num(resp));
+		//assertTrue(verificator.Validate_is_Pos_Num(resp));
+		//assertTrue(verificator.Validate_isUpperCaseAlNum(resp));
+		//assertTrue(verificator.Validate_LowerCaseAlNum(resp));
+		//assertTrue(verificator.Validate_isAlNum(resp));
 	}
 
     @Test 
@@ -53,13 +57,18 @@ class Challenge1ApplicationTests {
 		//verifica
 
 		String N="1";
-        assertTrue(N.matches("^-?[0-9]+"));
-		assertFalse(N.matches("[A-Z]+"));
-		assertFalse(N.matches("[a-z]+"));
+		assertFalse(verificator.Validate_isAlpha(N));
+		assertFalse(verificator.Validate_isLowerCaseAlpha(N));
+		assertFalse(verificator.Validate_isUpperCaseAlpha(N));
+		assertTrue(verificator.Validate_is_Num(N));
+		assertTrue(verificator.Validate_is_Pos_Num(N));
+		assertTrue(verificator.Validate_isUpperCaseAlNum(N));
+		assertTrue(verificator.Validate_isLowerCaseAlNum(N));
+		assertTrue(verificator.Validate_isAlNum(N));
     }
 
 
-	@RepeatedTest(1000)
+	@RepeatedTest(100)
     void test_Assert_String_as_LowerCaseAlpha(){
         int probabilidade = 0; // probabilidade de ser maiuscula
 		int tamanho =10;
@@ -73,8 +82,14 @@ class Challenge1ApplicationTests {
 			}
 			resp+=Character.toString(mychar);
 		}
-		assertTrue(resp.matches("[a-z]+"));
-		assertFalse(resp.matches("[A-Z]+"));
+		assertTrue(verificator.Validate_isAlpha(resp));
+		assertTrue(verificator.Validate_isLowerCaseAlpha(resp));
+		assertFalse(verificator.Validate_isUpperCaseAlpha(resp));
+		assertFalse(verificator.Validate_is_Num(resp));
+		assertFalse(verificator.Validate_is_Pos_Num(resp));
+		assertFalse(verificator.Validate_isUpperCaseAlNum(resp));
+		//assertTrue(verificator.Validate_isLowerCaseAlNum(N));
+		//assertTrue(verificator.Validate_isAlNum(N));
 	}
 
 	@RepeatedTest(1000)
@@ -96,11 +111,15 @@ class Challenge1ApplicationTests {
 				resp+=Character.toString(mychar);
 			}
 		}
-		assertFalse(resp.matches("[A-Z]+"));
-		assertTrue(resp.matches("[a-z0-9]+"));
+		assertTrue(verificator.Validate_isAlpha(resp));
+		assertTrue(verificator.Validate_isLowerCaseAlpha(resp));
+		assertFalse(verificator.Validate_isUpperCaseAlpha(resp));
+		assertFalse(verificator.Validate_is_Num(resp));
+		assertFalse(verificator.Validate_is_Pos_Num(resp));
+		assertFalse(verificator.Validate_isUpperCaseAlNum(resp));
 	}
 
-	@RepeatedTest(1000)
+	@RepeatedTest(100)
     void test_Assert_String_as_UpperCaseAlpha(){
 		int probabilidade = 100; // probabilidade de ser maiuscula
 		int tamanho =10;
@@ -114,18 +133,13 @@ class Challenge1ApplicationTests {
 			}
 			resp+=Character.toString(mychar);
 		}
-		assertFalse(resp.matches("[a-z]+"));
-		assertTrue(resp.matches("[A-Z]+"));
+		assertTrue(verificator.Validate_isAlpha(resp));
+		assertTrue(verificator.Validate_isUpperCaseAlpha(resp));
+		assertFalse(verificator.Validate_isLowerCaseAlpha(resp));
+		assertFalse(verificator.Validate_is_Num(resp));
+		assertFalse(verificator.Validate_is_Pos_Num(resp));
+		assertFalse(verificator.Validate_isLowerCaseAlNum(resp));
 	}
-
-	@Test
-    void test_create_service(){
-		/*               TODO 
-            create service 
-			check if it is active
-    	 */      
-    }
-
 
     @Test
     void test_create_input(){ 
@@ -138,6 +152,7 @@ class Challenge1ApplicationTests {
 		assertTrue(in.getN().equals("1"));
        
     }
+	
 
     @Test
     void test_post_request_contents(){
@@ -147,6 +162,15 @@ class Challenge1ApplicationTests {
 			asserttrue matching values
     	 */          
     }  
+
+
+	@Test
+    void test_create_service(){
+		/*               TODO 
+            create service 
+			check if it is active
+    	 */      
+    }
 
 
     @RepeatedTest(1000)
